@@ -2,52 +2,151 @@
 <html lang="es">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    
     <title>Inicio</title>
 </head>
 
-<body>
-    <nav>
-        <label for="menu-toggle" class="menu-icono"></label>
-        <input type="checkbox" id="menu-toggle" class="menu-toggle">
-        <ul class="menu">
-            <li><a href="{{ url_for('index') }}" role="button" id="inicio">Inicio</a></li>
-            <li><a href="{{ url_for('acercaNosotros') }}" role="button" id="Informacion Data">Acerca de Nosotros</a></li>
-            <li><a href="/template/Data.html" id="Informacion Data">Analisis Data</a></li>
-            <li><a href="/template/mapa.html" id="Mapa">Mapa</a></li>
-        </ul>
-    </nav>
-    <header>
-        <h1>iAgrosolutions</h1>
-        <p>Garantizando la trazabilidad, calidad, y transparencia en la cadena de suministro</p>
-    </header>
-    <div class="full-height_l">
-            <form method="POST" action="/login">
-                <div class="mb-3"><h2>Ingreso</h2></div>
-                <div class="mb-3">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Nombre de Usuario</span>
-                        <input type="text" class="form-control" name="username" placeholder="Usuario" required>
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Contraseña</span>
-                        <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
-                    </div>
-                    <button type="submit" class="btn btn_primary mb-3">Ingresar</button>
-                </div>
-                <div><p style="color: #0e6d11">¿No tienes cuenta? <button class="btn btn_primary"><a href="{{ url_for('registro') }}" role="button">Regístrate</a></button></p></div>
-            </form>
+<body
+style="position:relative"
+data-bs-spy="scroll" 
+data-bs-target="#navbar1" 
+data-bs-root-margin="0px 0px -40%" 
+data-bs-smooth-scroll="true"
+tabindex="0"
+>
+    <nav id="navbar1" class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+          <a class="text-emphasis navbar-brand" href="#">            
+            <i class="fas fa-leaf" style="color: black;"></i> <!-- Ícono de hoja negro -->
+          iAgrosolutions</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}"role="button" id="inicio">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('acercaNosotros') }}" role="button" id="Informacion Data">Acerca de Nosotros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/template/Data.html" id="Informacion Data">Analisis Data</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/template/mapa.html" id="Mapa">Mapa</a>
+              </li>
+            </ul>
+          </div>
         </div>
+      </nav>
+    <header>
 
+    </header>
+    <section>
+        <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+            <div class="container">
+              <div class="row gx-lg-5 align-items-center">
+                <!-- Columna para el texto y carrusel -->
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                  <!-- Texto principal -->
+                  <h1 class="text-primary display-5 fw-bold ls-tight">
+                    Garantizamos la trazabilidad, calidad<br />
+                    <span class="text-black">y transparencia en la cadena de suministro</span>
+                  </h1>
+          
+                  <!-- Carrusel sin efecto 3D y más grande -->
+                  <div id="carousel" class="carousel slide mt-4" data-bs-ride="carousel" style="width: 100%; max-width: 100%;">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="https://img.freepik.com/free-photo/agriculture-iot-with-rice-field-background_53876-124635.jpg?t=st=1727628845~exp=1727632445~hmac=eb5800d05a763f32561eb03892395b9994a76d64cd4d8fe914dd6f1e3a34dd6d&w=1380" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Imagen 1">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="https://img.freepik.com/free-photo/smart-agriculture-iot-with-hand-planting-tree-background_53876-124626.jpg?t=st=1727628892~exp=1727632492~hmac=c2300e61373fc5bee131ab354112842ae1a15d708946006e056d7c775d8e08c5&w=1380" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Imagen 2">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="https://img.freepik.com/free-photo/smart-farming-with-agriculture-iot_53876-124634.jpg?t=st=1727628980~exp=1727632580~hmac=1d79b1e08c010b2418f84a8f2bc728b6e729d2d52e1da45312b2392297d79acb&w=1380" class="d-block w-100" style="height: 400px; object-fit: cover;" alt="Imagen 3">
+                      </div>
+                    </div>
+                    <!-- Controles del carrusel -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Siguiente</span>
+                    </button>
+                  </div>
+                </div>
+          
+                <!-- Columna para el formulario de login -->
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                  <div class="card">
+                    <div class="card-body py-5 px-md-5">
+                      <!-- Formulario de login -->
+                      <form method="POST" action="/login">
+                        <!-- Usuario -->
+                        <div class="form-outline mb-4">
+                          <span class="form-control input-group-text">Nombre de Usuario</span>
+                          <input type="text" class="form-control" name="username" placeholder="Usuario" required>
+                        </div>
+          
+                        <!-- Contraseña -->
+                        <div class="form-outline mb-4">
+                          <span class="input-group-text">Ingrese su contraseña</span>
+                          <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
+                        </div>
+          
+                        <!-- Checkbox Recordarme -->
+                        <div class="form-check d-flex justify-content-center mb-4">
+                          <input class="form-check-input" type="checkbox" id="rememberMe">
+                          <label class="form-check-label" for="rememberMe">Recordarme</label>
+                        </div>
+          
+                        <!-- Botón de login -->
+                        <button type="submit" class="btn btn-primary btn-block mb-4">Ingresar</button>
+          
+                        <!-- Enlace para registrarse -->
+                        <div class="text-center">
+                          <p>¿No tienes cuenta? <a href="{{ url_for('registro') }}">Regístrate</a></p>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+    </section>
     <footer>
         <p>2024 Agrosolutions.com</p>
     </footer>
+    <!-- Optional JavaScript; choose one of the two! -->
 
-    <script src="../static/js/script1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
 </body>
-
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </html>
