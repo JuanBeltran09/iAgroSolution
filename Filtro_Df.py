@@ -20,28 +20,15 @@ def graficar(df, mun):
 
     df_municipality = filtro_Municipio(df,mun)
 
-    print(df_municipality)
-
-    df_2023  = df_municipality[df_municipality['anho'] == "2023"]
-
-    print(df_2023)
+    df_2023  = df_municipality[df_municipality['anho'] == 2023]
 
     product_count = df_2023['especie'].value_counts()
 
-    print(product_count)
-
     top_5_product = product_count.head(5).index
-
-    print(top_5_product)
-
 
     df_top_5_product = filtro_Product(df_municipality,top_5_product)
 
-    print(df_top_5_product)
-
     top_5_counts = df_top_5_product['especie'].value_counts()
-
-    print(top_5_counts)
 
     plt.figure(figsize=(10, 6))
     plt.pie(top_5_counts, labels=top_5_counts.index, autopct='%1.1f%%', startangle=140)

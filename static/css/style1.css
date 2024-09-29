@@ -100,15 +100,7 @@ img{
     border: 10px;
     border-radius: 10px;
 }
-.container{
-    width: 100%;
-    max-width: 1200px;
-    height: 430px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: auto;
-}
+
 section{
     font-size:large;
 }
