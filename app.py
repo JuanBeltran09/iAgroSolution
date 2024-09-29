@@ -2,10 +2,19 @@ from flask import Flask, render_template,request
 import pandas as pd
 app = Flask(__name__)
 
-df_users = pd.read_csv('users.csv')
+def leerUsuarios():
+    df = pd.read_csv('users.csv')
+    df['password'] = df['password'].astype(str)
+    return df
 
-def guardarUsuario(username, password, account, df):
+def leerProductoCliente():
+    productos = pd.read_csv('productoCliente.csv')
+    productos_list = productos.to_dict(orient='records')
+    return productos_list
+
+def guardarUsuario(username, password, account):
     df_new = pd.DataFrame([{'username':username,'password':password,'account':account}])
+    df = leerUsuarios()
     df = pd.concat([df,df_new], ignore_index=True)
     df.to_csv('users.csv',index=False)
 
@@ -24,9 +33,7 @@ def registro():  # put application's code here
         username = request.form['username']
         password = request.form['password']
         account = request.form.get('type')
-
-        print(username, password, account, df_users)
-        guardarUsuario(username, password, account, df_users)
+        guardarUsuario(username, password, account)
         return render_template('index.html')
     return render_template('registro.html')
 
@@ -36,13 +43,26 @@ def login():  # put application's code here
 
         username = request.form['username']
         password = request.form['password']
-        account = request.form.get('type')
 
-        print(username, password, account, df_users)
-        guardarUsuario(username, password, account, df_users)
-        return render_template('index.html')
+        df = leerUsuarios()
+
+        usuario_valido = df[(df['username'] == username) & (df['password'] == password)]
+
+        if not usuario_valido.empty:
+            if usuario_valido['account'].iloc[0] == "Cliente":
+                return render_template('cliente_index.html', producto = leerProductoCliente())
+            elif usuario_valido['account'].iloc[0] == "Transportador":
+                return render_template('registro.html')
+            elif usuario_valido['account'].iloc[0] == "Proveedor":
+                return render_template('registro.html')
+        else:
+            return render_template('index.html')
+
     return render_template('registro.html')
 
+@app.route('/indexCliente')
+def indexCliente():  # put application's code here
+    return render_template('cliente_index.html', producto = leerProductoCliente())
 
 if __name__ == '__main__':
     app.run()
