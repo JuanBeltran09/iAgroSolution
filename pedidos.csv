@@ -1,4 +1,2 @@
 producto,nombreCliente,nombreProveedor,cantidad,fechaPedida,fechaEntrega,estado
-Fertilizante,test,Metro,2,29-09-2024,29-10-2024,No Enviado
-Fertilizante,test,Metro,2,29-08-2024,29-10-2024,No Enviado
-Fertilizante,test,Metro,10,29-09-2024,29-10-2024,No Enviado
+Fertilizante,test,Metro,1,29-09-2024,29-10-2024,Enviado
