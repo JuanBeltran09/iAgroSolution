@@ -9,6 +9,11 @@
 }
 
 
+.carousel-control-prev:hover,.carousel-control-next:hover {
+        background-color: rgba(255, 255, 255, 0.9); /* Color de fondo en hover */
+}
+
+
 #navbar1 {
     background-color: #28a745; /* Verde Bootstrap */
     height: 50px; 
@@ -92,7 +97,6 @@ section{
     flex: 0 0 auto;
 }
 img{
-    max-width: 30%;
     border: 10px;
     border-radius: 10px;
 }
