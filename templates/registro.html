@@ -7,39 +7,81 @@
     <title>Registro</title>
 </head>
 <body>
-    <nav style="padding: 15px">
-        <h1 style="color: rgb(255,255,255); font-size: 40px">iAgrosolutions</h1>
-        <p style="color: rgb(255,255,255); font-size: 30px">Garantizando la trazabilidad, calidad, y transparencia en la cadena de suministro</p>
+    <nav id="navbar1" class="navbar navbar-expand-lg fixed-top" style="align-content: center;align-items: center">
+        <h1 style="color: rgb(255,255,255); font-size: 40px;width: 100%; padding: 10px ; text-align: center">Resgistrate con nosotros</h1>
     </nav>
-        <div class="full-height">
-            <form method="POST" action="/registro">
-                <div class="mb-3"><h2>Registro</h2></div>
+
+    <section>
+      <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="position: relative; overflow: hidden; background-color: hsl(0, 0%, 96%); height: 730px">
+          <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;">
+              <div class="carousel-inner" style="height: 100%;">
+                  <div class="carousel-item active" data-bs-interval="10000" style="height: 100%;">
+                      <img src="https://img.freepik.com/free-photo/agriculture-iot-with-rice-field-background_53876-124635.jpg?t=st=1727628845~exp=1727632445~hmac=eb5800d05a763f32561eb03892395b9994a76d64cd4d8fe914dd6f1e3a34dd6d&w=1380" class="d-block w-100 h-100" alt="..." style="object-fit: cover;">
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2000" style="height: 100%;">
+                      <img src="https://img.freepik.com/free-photo/smart-agriculture-iot-with-hand-planting-tree-background_53876-124626.jpg?t=st=1727628892~exp=1727632492~hmac=c2300e61373fc5bee131ab354112842ae1a15d708946006e056d7c775d8e08c5&w=1380" class="d-block w-100 h-100" alt="..." style="object-fit: cover;">
+                  </div>
+                  <div class="carousel-item" style="height: 100%;">
+                      <img src="https://img.freepik.com/free-photo/smart-farming-with-agriculture-iot_53876-124634.jpg?t=st=1727628980~exp=1727632580~hmac=1d79b1e08c010b2418f84a8f2bc728b6e729d2d52e1da45312b2392297d79acb&w=1380" class="d-block w-100 h-100" alt="..." style="object-fit: cover;">
+                  </div>
+              </div>
+              <div class="carousel-controls d-flex justify-content-between align-items-center" style="position: absolute; top: 50%; width: 100%; transform: translateY(-50%);">
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev" style="width: 40px; height: 40px; background-color: rgba(255, 255, 255, 0.7); border-radius: 50%; border: none; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s;">
+                      <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(1);"></span>
+                      <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next" style="width: 40px; height: 40px; background-color: rgba(255, 255, 255, 0.7); border-radius: 50%; border: none; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s;">
+                      <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(1);"></span>
+                      <span class="visually-hidden">Next</span>
+                  </button>
+              </div>
+          </div>
+
+          <div class="container" style="position: relative; z-index: 1;">
+              <div class="row gx-lg-5 align-items-center">
+                  <!-- Columna para el texto -->
+                  <!-- Columna para el formulario de login -->
+                  <div class="card">
+                              <!-- Formulario de login --><div class="full-height">
+                                  <form style="width: 100%; padding: 10px" method="POST" action="/registro">
                 <div class="mb-3">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Nombre de Usuario</span>
-                        <input type="text" class="form-control" name="username" placeholder="Usuario" required>
+                    <div class="form-outline mb-4">
+                        <span style="width: 100%; padding: 10px" class="input-group-text">Nombre de Usuario</span>
+                        <input style="width: 100%; padding: 10px" type="text" class="form-control" name="username" placeholder="Usuario" required>
                     </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Correo Electrónico</span>
-                        <input type="email" class="form-control" name="email" placeholder="Correo Electrónico" required>
+                    <div class="form-outline mb-4">
+                        <span style="width: 100%; padding: 10px" class="input-group-text">Correo Electrónico</span>
+                        <input style="width: 100%; padding: 10px" type="email" class="form-control" name="email" placeholder="Correo Electrónico" required>
                     </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Contraseña</span>
-                        <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
+                    <div class="form-outline mb-4">
+                        <span style="width: 100%; padding: 10px" class="input-group-text">Contraseña</span>
+                        <input style="width: 100%; padding: 10px" type="password" class="form-control" name="password" placeholder="Contraseña" required>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label" style="background-color: #0e6d11; color: aliceblue; border-radius: 10px; padding: 5px">Selecione el tipo de cuenta.</label>
-                        <select class="form-select mb-3" name = "type">
+                    <div class="form-outline mb-4">
+                        <label style="width: 100%; padding: 10px" class="form-label" style="background-color: #0e6d11; color: aliceblue; border-radius: 10px; padding: 5px">Selecione el tipo de cuenta.</label>
+                        <select style="width: 100%; padding: 10px" class="form-select mb-3" name = "type">
                           <option>Seleccione una.</option>
                           <option>Cliente</option>
                           <option>Proveedor</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn_primary mb-3">Registrarse</button>
+                    <button style="width: 100%; padding: 10px" type="submit" class="btn btn_primary mb-3">Registrarse</button>
                 </div>
-                <div><p style="color: #0e6d11">¿Ya tienes una cuenta? <button class="btn btn_primary"><a href="{{ url_for('index') }}" role="button">Inicia Sesión</a></button></p></div>
+                <div class="text-center"><p>¿Ya tienes una cuenta? <a href="{{ url_for('index') }}" role="button">Inicia Sesión</a></p></div>
             </form>
-        </div>
+                              </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </section>
+    <style>
+    .carousel-control-prev:hover,
+    .carousel-control-next:hover {
+        background-color: rgba(255, 255, 255, 0.9); /* Color de fondo en hover */
+    }
+    </style>
 
         <footer>
             <p>2024 Agrosolutions.com</p>

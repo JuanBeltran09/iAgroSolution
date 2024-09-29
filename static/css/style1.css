@@ -143,10 +143,9 @@ html, body {
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
 }
-.full-height_l {
-    min-height: 50vh;
-    min-width: 50vh;/* Asegura que el contenedor tenga al menos la altura de la ventana */
+.full-height_l {/* Asegura que el contenedor tenga al menos la altura de la ventana */
     display: flex;
+    flex-direction: column;
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
 }

@@ -7,9 +7,29 @@
     <title>Agregar Producto</title>
 </head>
 <body>
-    <nav style="padding: 15px">
-        <h1 style="color: rgb(255,255,255); font-size: 40px">Agregar Producto</h1>
-    </nav>
+    <nav id="navbar1" class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+          <a class="text-emphasis navbar-brand" href="#">
+            <i class="fas fa-leaf" style="color: black;"></i> <!-- Ícono de hoja negro -->
+          iAgrosolutions</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <a class="nav-link active" href="{{ url_for('indexProveedor') }}" role="button">PEDIDOS PENDIENTES</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="{{ url_for('agregarProducto') }}" role="button">AGREGAR PRODUCTOS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="{{ url_for('index') }}" role="button">SALIR</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
         <div class="full-height">
             <form method="POST" action="/agregarProducto">
                 <div class="mb-3"><h2>Agregar</h2></div>
@@ -25,7 +45,6 @@
 
                     <button type="submit" class="btn btn_primary mb-3">Agregar</button>
                 </div>
-                <div><p style="color: #0e6d11">¿Ya tienes una cuenta? <button class="btn btn_primary"><a href="{{ url_for('index') }}" role="button">Inicia Sesión</a></button></p></div>
             </form>
         </div>
 
