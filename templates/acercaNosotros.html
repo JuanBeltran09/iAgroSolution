@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="" width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style1.css">
+</head>
+
+<body>
+    <header>
+        <h1>Agrosolutions</h1>
+        <p>Garantizando la trazabilidad, calidad, y transparencia en la cadena de suministro</p>
+    </header>
+    <nav>
+        <label for="menu-toggle" class="menu-icono"></label>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <ul class="menu">
+            <li><a href="{{ url_for('index') }}" role="button" id="inicio">Inicio</a></li>
+            <li><a href="{{ url_for('acercaNosotros') }}" role="button" id="Informacion Data">Analisis Data</a></li>
+            <li><a href="/template/Data.html" id="Informacion Data">Analisis Data</a></li>
+            <li><a href="/template/mapa.html" id="Mapa">Mapa</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="container">
+            <div class="card">
+                <section id="contenido">
+                    <h2>Bienvenido</h2>
+                    <p> Descubre el increible campo de nuestros departamentos.</p>
+                    <div class="carousel-inner">
+                        <img src="../static/img/agricultura-e1551193452226.jpg" class="d-block w-100" alt="campo">
+                        <img src="../static/img/pngtree-wheat-in-the-hands-harvest-time-image_1604049.jpg" class="d-block w-100"
+                            alt="campesino">
+                        <img src="../static/img/pexels-quang-nguyen-vinh-222549-2131784.jpg" class="d-block w-100" alt="muestra">
+
+                    </div>
+                </section>
+                <section>
+                    <h2>Misión</h2>
+                    <p>Facilitar la gestión eficiente y transparente de la logística en la cadena de
+                        suministro agroindustrial, ofreciendo soluciones tecnológicas que aseguren la
+                        trazabilidad, calidad y seguridad de los productos desde el origen hasta el
+                        consumidor final. Nuestro objetivo es mejorar la sostenibilidad y competitividad
+                        del sector agroindustrial mediante la optimización de procesos y la transparencia en cada etapa.
+                    </p>
+                    <h2>Visión</h2>
+                    <p>Convertirnos en la plataforma líder en la gestión logística y trazabilidad para la
+                        industria agroindustrial a nivel global, impulsando la innovación, la eficiencia
+                        operativa y la sostenibilidad. Aspiramos a transformar la manera en que los
+                        productos agroindustriales son gestionados y distribuidos, estableciendo
+                        nuevos estándares de calidad y confianza en las cadenas de suministro.</p>
+                    <h2>A que nos dedicamos</h2>
+                    <p>Nos especializamos en desarrollar soluciones tecnológicas para el sector agroindustrial,
+                        enfocándonos en la logística de bienes y servicios.
+                        A través de nuestra plataforma, las empresas pueden documentar, almacenar y compartir datos
+                        críticos sobre su cadena de suministro, asegurando trazabilidad completa de los productos.
+                        Proveemos herramientas para el seguimiento de la calidad,facilitando la comunicación entre
+                        productores, distribuidores y consumidores,
+                        con el objetivo de garantizar la seguridad y sostenibilidad en la entrega de productos
+                        agroindustriales.</p>
+                    <p></p>
+                </section>
+                <section id="formulario">
+                    <form id="contactForm">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+
+                        <label for="Apellido">Apellido</label>
+                        <input type="text" id="Apellido">
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <label for="Asunto">Asunto</label>
+
+                        <textarea name="comentario" id="comentario" cols="30" rows="10" placeholder="ingrese comentario">Ingreso comentario</textarea>
+                        <br><input type="checkbox" name="terminos" id="terminos">
+                        <label for="terminos">Acepta los terminos y condiciones</label><br>
+
+                        <button type="submit">Enviar</button>
+                    </form>
+                </section>
+            </div>
+        </div>
+
+    </main>
+    <script src="../static/js/script1.js"></script>
+    <footer>
+        <p>2024 Agrosolutions.com</p>
+    </footer>
+</body>
+
+</html>

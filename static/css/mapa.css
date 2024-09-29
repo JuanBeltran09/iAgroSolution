@@ -1,0 +1,80 @@
+:root{
+    --primary-color: white;
+    --secondary-color:#0e6d11;
+    --background-color: white;
+    --text-color:#0e6d11;
+    --nav-bg-color:white;   
+    --footer-bg-color:#0e6d11 ;
+    --section-padding: 20px; 
+}
+
+body {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+header {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px 0;
+    font-size:xx-large;
+}
+
+
+nav {
+    background-color:var(--secondary-color);   
+    text-align: center;
+} 
+
+.menu-icon{
+    cursor: pointer;
+    font-size: 30px;
+    display: none;
+}
+
+.menu-toggle{
+    display: none;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    justify-content: center;
+}
+
+nav ul li{
+    display: inline;
+    margin: 40px;
+    font-size: larger;
+}
+
+nav ul li a{
+    color:var(--primary-color);
+    text-decoration: none;
+    padding: 10px;
+    font-size: xx-large;
+}
+
+main{
+    background-color: var(--primary-color);
+    color:var(--text-color);
+    padding: var(--section-padding);
+    font-size: x-large;
+} 
+
+#map {
+    height: 400px;
+}
+
+footer {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    text-align: center;
+    padding: 10px 0;
+    bottom: 0;
+    width: 100%;
+}

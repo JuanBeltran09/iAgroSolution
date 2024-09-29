@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/style1.css">
+</head>
+
+<body>
+    <nav>
+        <label for="menu-toggle" class="menu-icono"></label>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <ul class="menu">
+            <li><a href="{{ url_for('index') }}" role="button" id="inicio">Inicio</a></li>
+            <li><a href="{{ url_for('acercaNosotros') }}" role="button" id="Informacion Data">Acerca de Nosotros</a></li>
+            <li><a href="/template/Data.html" id="Informacion Data">Analisis Data</a></li>
+            <li><a href="/template/mapa.html" id="Mapa">Mapa</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>iAgrosolutions</h1>
+        <p>Garantizando la trazabilidad, calidad, y transparencia en la cadena de suministro</p>
+    </header>
+    <div class="full-height_l">
+            <form method="POST" action="/registro">
+                <div class="mb-3"><h2>Registro</h2></div>
+                <div class="mb-3">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Nombre de Usuario</span>
+                        <input type="text" class="form-control" name="username" placeholder="Usuario" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Contraseña</span>
+                        <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
+                    </div>
+                    <button type="submit" class="btn btn_primary mb-3">Registrarse</button>
+                </div>
+                <div><p style="color: #0e6d11">¿No tienes cuenta? <button class="btn btn_primary"><a href="{{ url_for('registro') }}" role="button">Regístrate</a></button></p></div>
+            </form>
+        </div>
+
+    <footer>
+        <p>2024 Agrosolutions.com</p>
+    </footer>
+
+    <script src="../static/js/script1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+
+</html>

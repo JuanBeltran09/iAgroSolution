@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="" width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="      crossorigin=""/>
+    <link rel="stylesheet" href="../static/css/mapa.css">
+</head>
+
+<body>
+    <header>
+        <h1>Agrosolutions</h1>
+        <p>Garantizando la trazabilidad, calidad, y transparencia en la cadena de suministro</p>
+    </header>
+    <nav>
+        <label for="menu-toggle" class="menu-icono"></label>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <ul class="menu">
+            <li><a href="/index.html" id="inicio">Inicio</a></li>
+            <li><a href="/template/Data.html" id="AnalisisData">Analisis Data</a> <data value=""></data></li>
+            <li><a href="#" id="Mapa">Mapa</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="py-5 bg-image-full">
+            <div class="text-center my-5">
+                <h2 class="text-black fs-3 fw-bolder">Conoce el maravilloso mundo nuestros terrenos para cultivar</h2>
+                <p class="text-black-50 mb-0">Nuestro campo es riqueza natural</p>
+            </div>
+        </div>
+        <section id="mapaSection">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6">
+                        <div id="map"></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h2 class="fw-bolder">El campo es vida.</h2>
+                        <p class="lead fw-normal text-muted mb-0">El campo es la principal fuente de producción de nuestros alimentos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>2024 kualiagro.com</p>
+    </footer>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../static/js/mapa.js"></script>
+</body>
+
+</html>

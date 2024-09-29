@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Solutions</title>
+    <link rel="stylesheet" href="../static/css/data.css">
+</head>
+<body>
+    <header>
+        <h1>Agro Solutions</h1>
+        <p>Garantizando la trazabilidad, calidad, y transparencia en la cadena de suministro</p>
+    </header>
+    <nav>
+        <label for="menu-toggle" class="menu-icono"></label>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <ul class="menu">
+            <li><a href="{{ url_for('/') }}" role="button" id="inicio">Inicio</a></li>
+            <li><a href="#AnalisisData" id="Informacion Data">Analisis Data</a></li>
+            <li><a href="/template/mapa.html" id="Mapa">Mapa</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="data-storage">
+            <h2>Registro de Datos Logísticos</h2>
+            <form id="data-form">
+                <label for="product">Producto:</label>
+                <input type="text" id="product" required>
+
+                <label for="origin">Origen:</label>
+                <input type="text" id="origin" required>
+
+                <label for="logistics">Movimiento Logístico:</label>
+                <input type="text" id="logistics" required>
+
+                <label for="status">Estado Actual:</label>
+                <select id="status">
+                    <option value="en producción">En producción</option>
+                    <option value="en tránsito">En tránsito</option>
+                    <option value="entregado">Entregado</option>
+                </select>
+
+                <button type="submit">Guardar Datos</button>
+            </form>
+
+            <div id="data-display">
+                <h3>Datos Almacenados</h3>
+                <ul id="data-list">
+                    <!-- Aquí se mostrarán los datos almacenados -->
+                </ul>
+            </div>
+        </section>
+
+        <section id="data-analysis">
+            <h2>Análisis de Datos</h2>
+            <button id="analyze-button">Analizar Datos</button>
+            <p id="analysis-output">Resultados del análisis aparecerán aquí.</p>
+        </section>
+
+        <section id="ai-prediction">
+            <h2>Predicción y Sugerencias</h2>
+            <button id="predict-button">Realizar Predicción</button>
+            <p id="prediction-output">La predicción sobre la calidad aparecerá aquí.</p>
+        </section>
+    </main>
+
+    <script src="../static/js/data.js"></script>
+</body>
+</html>
