@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import pandas as pd
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
+import Filtro_Df as fil
 
 app = Flask(__name__)
 user = ''
@@ -192,6 +193,23 @@ def agregarProducto():
         guardarProducto(producto, precio, nombreProveedor)
         return redirect(url_for('indexProveedor'))
     return render_template('agregarProducto.html')
+
+@app.route('/analisisData', methods=['GET', 'POST'])
+def analisisData():
+    df = fil.filtro()
+    municipios = df['municipio'].drop_duplicates().tolist()
+
+    if request.method == 'POST':
+        municipio = request.form.get('municipio')
+        product_info = fil.graficar(df, municipio)
+        show = 1
+        return render_template("Data.html",
+                               municipios=municipios,
+                               show=show,
+                               municipio=municipio,
+                               product_info=product_info)
+
+    return render_template('Data.html', municipios=municipios)
 
 if __name__ == '__main__':
     app.run()

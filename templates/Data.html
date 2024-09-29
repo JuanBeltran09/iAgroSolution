@@ -4,66 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agro Solutions</title>
-    <link rel="stylesheet" href="../static/css/data.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/style1.css">
+
 </head>
 <body>
-    <header>
-        <h1>Agro Solutions</h1>
-        <p>Garantizando la trazabilidad, calidad, y transparencia en la cadena de suministro</p>
-    </header>
-    <nav>
-        <label for="menu-toggle" class="menu-icono"></label>
-        <input type="checkbox" id="menu-toggle" class="menu-toggle">
-        <ul class="menu">
-            <li><a href="{{ url_for('/') }}" role="button" id="inicio">Inicio</a></li>
-            <li><a href="#AnalisisData" id="Informacion Data">Analisis Data</a></li>
-            <li><a href="/template/mapa.html" id="Mapa">Mapa</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section id="data-storage">
-            <h2>Registro de Datos Logísticos</h2>
-            <form id="data-form">
-                <label for="product">Producto:</label>
-                <input type="text" id="product" required>
+    <nav id="navbar1" class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+          <a class="text-emphasis navbar-brand" href="#">
+            <i class="fas fa-leaf" style="color: black;"></i> <!-- Ícono de hoja negro -->
+          iAgrosolutions</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}"role="button" id="inicio">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('acercaNosotros') }}" role="button" id="Informacion Data">Acerca de Nosotros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('analisisData') }}" role="button" id="Informacion Data">Analisis Data</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-                <label for="origin">Origen:</label>
-                <input type="text" id="origin" required>
+    <form form method="POST" action="/analisisData">
+        <div class="mb-3">
+            <label class="form-label">Selecione el municipio.</label>
+            <select class="form-select" aria-label="Default select example" name="municipio">
+                <option>Seleccione uno.</option>
+                {% for m in municipios %}
+                    <option>{{ m }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Consultar</button>
+    </form>
+    {% if show == 1 %}
+        <div class="container py-5 text-center">
+            <h3>Gráfica de los 5 Productos con mayor rendimiento (ton/ha) en {{ municipio }}.</h3>
+            <img class="img-fluid rounded" src="../static/img/grafica.png" alt="">
+                </div>
+                <div class="row align-items-center">
+                    <div class="">
+                        <div class="accordion" id="accordionExample">
+                            {% for animal, info in product_info.items() %}
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading{{loop.index}}">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse{{loop.index}}" aria-expanded="true" aria-controls="collapse{{loop.index}}">
+                                            {{ animal }}
+                                        </button>
+                                    </h2>
+                                    <div id="collapse{{loop.index}}" class="accordion-collapse collapse" aria-labelledby="heading{{loop.index}}"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body align-items-center row">
+                                            <div class="col-12 col-lg-8">
+                                                <strong>Estado Fisico:</strong> {{ info.EstadoFisicoProduccio }}<br>
+                                                <strong>Redimiento:</strong> {{ info.rendimiento }}<br>
+                                                <strong>Nombre Cientifico:</strong> {{ info.nombre_cientifico }}<br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
 
-                <label for="logistics">Movimiento Logístico:</label>
-                <input type="text" id="logistics" required>
-
-                <label for="status">Estado Actual:</label>
-                <select id="status">
-                    <option value="en producción">En producción</option>
-                    <option value="en tránsito">En tránsito</option>
-                    <option value="entregado">Entregado</option>
-                </select>
-
-                <button type="submit">Guardar Datos</button>
-            </form>
-
-            <div id="data-display">
-                <h3>Datos Almacenados</h3>
-                <ul id="data-list">
-                    <!-- Aquí se mostrarán los datos almacenados -->
-                </ul>
-            </div>
-        </section>
-
-        <section id="data-analysis">
-            <h2>Análisis de Datos</h2>
-            <button id="analyze-button">Analizar Datos</button>
-            <p id="analysis-output">Resultados del análisis aparecerán aquí.</p>
-        </section>
-
-        <section id="ai-prediction">
-            <h2>Predicción y Sugerencias</h2>
-            <button id="predict-button">Realizar Predicción</button>
-            <p id="prediction-output">La predicción sobre la calidad aparecerá aquí.</p>
-        </section>
-    </main>
-
-    <script src="../static/js/data.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
