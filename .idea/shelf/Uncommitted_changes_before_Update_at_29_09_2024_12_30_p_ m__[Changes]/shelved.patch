@@ -1,0 +1,470 @@
+Index: users.csv
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>username,password,account\r\ntest,123,Cliente\r\nJuan,123,Transportador\r\nMetro,123,Proveedor\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/users.csv b/users.csv
+--- a/users.csv	(revision 3a6d05d16afecd7904d74ab3a60205c2542c60f4)
++++ b/users.csv	(date 1727628312714)
+@@ -1,4 +1,3 @@
+ username,password,account
+ test,123,Cliente
+-Juan,123,Transportador
+ Metro,123,Proveedor
+Index: templates/registro.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH\" crossorigin=\"anonymous\">\r\n    <link rel=\"stylesheet\" href=\"../static/css/style1.css\">\r\n    <title>Registro</title>\r\n</head>\r\n<body>\r\n    <nav style=\"padding: 15px\">\r\n        <h1 style=\"color: rgb(255,255,255); font-size: 40px\">iAgrosolutions</h1>\r\n        <p style=\"color: rgb(255,255,255); font-size: 30px\">Garantizando la trazabilidad, calidad, y transparencia en la cadena de suministro</p>\r\n    </nav>\r\n        <div class=\"full-height\">\r\n            <form method=\"POST\" action=\"/registro\">\r\n                <div class=\"mb-3\"><h2>Registro</h2></div>\r\n                <div class=\"mb-3\">\r\n                    <div class=\"input-group mb-3\">\r\n                        <span class=\"input-group-text\">Nombre de Usuario</span>\r\n                        <input type=\"text\" class=\"form-control\" name=\"username\" placeholder=\"Usuario\" required>\r\n                    </div>\r\n                    <div class=\"input-group mb-3\">\r\n                        <span class=\"input-group-text\">Correo Electrónico</span>\r\n                        <input type=\"email\" class=\"form-control\" name=\"email\" placeholder=\"Correo Electrónico\" required>\r\n                    </div>\r\n                    <div class=\"input-group mb-3\">\r\n                        <span class=\"input-group-text\">Contraseña</span>\r\n                        <input type=\"password\" class=\"form-control\" name=\"password\" placeholder=\"Contraseña\" required>\r\n                    </div>\r\n                    <div class=\"mb-3\">\r\n                        <label class=\"form-label\" style=\"background-color: #0e6d11; color: aliceblue; border-radius: 10px; padding: 5px\">Selecione el tipo de cuenta.</label>\r\n                        <select class=\"form-select mb-3\" name = \"type\">\r\n                          <option>Seleccione una.</option>\r\n                          <option>Cliente</option>\r\n                          <option>Transportador</option>\r\n                          <option>Proveedor</option>\r\n                        </select>\r\n                    </div>\r\n                    <button type=\"submit\" class=\"btn btn_primary mb-3\">Registrarse</button>\r\n                </div>\r\n                <div><p style=\"color: #0e6d11\">¿Ya tienes una cuenta? <button class=\"btn btn_primary\"><a href=\"{{ url_for('index') }}\" role=\"button\">Inicia Sesión</a></button></p></div>\r\n            </form>\r\n        </div>\r\n\r\n        <footer>\r\n            <p>2024 Agrosolutions.com</p>\r\n        </footer>\r\n\r\n        <script src=\"../static/js/script1.js\"></script>\r\n        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz\" crossorigin=\"anonymous\"></script>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/registro.html b/templates/registro.html
+--- a/templates/registro.html	(revision 3a6d05d16afecd7904d74ab3a60205c2542c60f4)
++++ b/templates/registro.html	(date 1727628312685)
+@@ -32,7 +32,6 @@
+                         <select class="form-select mb-3" name = "type">
+                           <option>Seleccione una.</option>
+                           <option>Cliente</option>
+-                          <option>Transportador</option>
+                           <option>Proveedor</option>
+                         </select>
+                     </div>
+Index: templates/enviarPedido.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/enviarPedido.html b/templates/enviarPedido.html
+new file mode 100644
+--- /dev/null	(date 1727625993436)
++++ b/templates/enviarPedido.html	(date 1727625993436)
+@@ -0,0 +1,55 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
++    <link rel="stylesheet" href="../static/css/style1.css">
++    <title>Proveedor</title>
++    <script>
++        // Función para mostrar una ventana de confirmación antes de enviar el formulario
++        function confirmarEnvio() {
++            return confirm('¿Estás seguro de que deseas enviar este pedido?');
++        }
++    </script>
++</head>
++<body>
++    <nav class="mb-3">
++        <label for="menu-toggle" class="menu-icono"></label>
++        <input type="checkbox" id="menu-toggle" class="menu-toggle">
++        <ul class="menu">
++            <li><a href="{{ url_for('index') }}" role="button">SALIR</a></li>
++        </ul>
++    </nav>
++    <h1>Lista de Pedidos Faltantes</h1>
++    <form method="POST" action="/enviarTransportador" onsubmit="return confirmarEnvio()">
++        <table class="table">
++        <thead>
++            <tr>
++                <th>Nombre del Transporte</th>
++                <th>Nombre del Cliente</th>
++                <th>Precio</th>
++                <th>Enviar</th>
++            </tr>
++        </thead>
++        <tbody>
++            {% for item in producto %}
++            <tr>
++                <td>{{ item['nombre'] }}</td>
++                <input type="hidden" name="nombre" value="{{ item['nombre'] }}">
++                <td>{{ user }}</td>
++                <td>{{ item['precio'] }}</td>
++
++                <input type="hidden" name="indice" value="{{ indice }}">
++
++                <td><button type="submit" class="btn btn_primary">Enviar</button></td>
++            </tr>
++            {% endfor %}
++        </tbody>
++    </table>
++    </form>
++    <footer>
++        <p>2024 Agrosolutions.com</p>
++    </footer>
++<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
++</body>
++</html>
+\ No newline at end of file
+Index: templates/proveedor_index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH\" crossorigin=\"anonymous\">\r\n    <link rel=\"stylesheet\" href=\"../static/css/style1.css\">\r\n    <title>Proveedor</title>\r\n</head>\r\n<body>\r\n    <nav class=\"mb-3\">\r\n        <label for=\"menu-toggle\" class=\"menu-icono\"></label>\r\n        <input type=\"checkbox\" id=\"menu-toggle\" class=\"menu-toggle\">\r\n        <ul class=\"menu\">\r\n            <li><a href=\"{{ url_for('index') }}\" role=\"button\">SALIR</a></li>\r\n        </ul>\r\n    </nav>\r\n    <h1>Lista de Pedidos Faltantes</h1>\r\n    <form>\r\n        <table class=\"table\">\r\n        <thead>\r\n            <tr>\r\n                <th>Producto</th>\r\n                <th>Nombre del Cliente</th>\r\n                <th>Cantidad</th>\r\n                <th>Fecha del pedido</th>\r\n                <th>Enviar</th>\r\n            </tr>\r\n        </thead>\r\n        <tbody>\r\n            {% for item in producto %}\r\n            <tr>\r\n                <td>{{ item['producto'] }}</td>\r\n                <input type=\"hidden\" name=\"producto\" value=\"{{ item['producto'] }}\">\r\n                <td>{{ item['nombreCliente'] }}</td>\r\n                <input type=\"hidden\" name=\"nombreCliente\" value=\"{{ item['nombreCliente'] }}\">\r\n                <td>{{ item['cantidad'] }}</td>\r\n                <input type=\"hidden\" name=\"cantidad\" value=\"{{ item['cantidad'] }}\">\r\n                <td>{{ item['fechaPedida'] }}</td>\r\n                <input type=\"hidden\" name=\"fechaPedida\" value=\"{{ item['fechaPedida'] }}\">\r\n\r\n                <input type=\"hidden\" name=\"indice\" value=\"{{ loop.index0 }}\">\r\n\r\n                <td><button type=\"submit\" class=\"btn btn_primary\">Enviar</button></td>\r\n            </tr>\r\n            {% endfor %}\r\n        </tbody>\r\n    </table>\r\n    </form>\r\n    <footer>\r\n        <p>2024 Agrosolutions.com</p>\r\n    </footer>\r\n<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz\" crossorigin=\"anonymous\"></script>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/proveedor_index.html b/templates/proveedor_index.html
+--- a/templates/proveedor_index.html	(revision 3a6d05d16afecd7904d74ab3a60205c2542c60f4)
++++ b/templates/proveedor_index.html	(date 1727628796888)
+@@ -11,11 +11,12 @@
+         <label for="menu-toggle" class="menu-icono"></label>
+         <input type="checkbox" id="menu-toggle" class="menu-toggle">
+         <ul class="menu">
++            <li><a href="{{ url_for('agregarProducto') }}" role="button">AGREGAR PRODUCTOS</a></li>
+             <li><a href="{{ url_for('index') }}" role="button">SALIR</a></li>
+         </ul>
+     </nav>
+     <h1>Lista de Pedidos Faltantes</h1>
+-    <form>
++    <form method="POST" action="/enviarPedido">
+         <table class="table">
+         <thead>
+             <tr>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"37f287e9-c897-458b-a2e1-2324fc3d408f\" name=\"Changes\" comment=\"Vista Cliente\">\r\n      <change afterPath=\"$PROJECT_DIR$/Envios.csv\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/templates/confirmarPedido.html\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/templates/proveedor_index.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/app.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/app.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pedidos.csv\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pedidos.csv\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/productoCliente.csv\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/productoCliente.csv\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/productoProveedor.csv\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/productoProveedor.csv\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/templates/cliente_index.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/templates/cliente_index.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/templates/pedidosCliente.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/templates/pedidosCliente.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/templates/pedirProducto.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/templates/pedirProducto.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/users.csv\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/users.csv\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Flask Main\" />\r\n        <option value=\"HTML File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;JuanBeltran09&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/JuanBeltran09/iAgroSolution.git&quot;,\r\n    &quot;accountId&quot;: &quot;e72f5982-a71d-4d36-8ec0-0e7ce1e17826&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 5\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2micnf6msxFSoqAR07jlhHGGElr\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,\r\n    &quot;Flask server.iAgroSolucion.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lenovo/Documents/iAgroSolucion&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Lenovo\\Documents\\iAgroSolucion\\static\\css\" />\r\n      <recent name=\"C:\\Users\\Lenovo\\Documents\\iAgroSolucion\\static\\img\" />\r\n      <recent name=\"C:\\Users\\Lenovo\\Documents\\iAgroSolucion\\static\\js\" />\r\n      <recent name=\"C:\\Users\\Lenovo\\Documents\\iAgroSolucion\\templates\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"iAgroSolucion\" type=\"Python.FlaskServer\">\r\n      <module name=\"iAgroSolucion\" />\r\n      <option name=\"target\" value=\"$PROJECT_DIR$/app.py\" />\r\n      <option name=\"targetType\" value=\"PATH\" />\r\n      <option name=\"ENV_FILES\" value=\"\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"false\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\r\n      <option name=\"launchJavascriptDebuger\" value=\"false\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-PY-242.20224.347\" />\r\n        <option value=\"bundled-python-sdk-c2d6afa66fbe-39cff9de6eef-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.20224.347\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"37f287e9-c897-458b-a2e1-2324fc3d408f\" name=\"Changes\" comment=\"\" />\r\n      <created>1727563006094</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1727563006094</updated>\r\n      <workItem from=\"1727563007187\" duration=\"4291000\" />\r\n      <workItem from=\"1727568786811\" duration=\"13746000\" />\r\n      <workItem from=\"1727613920051\" duration=\"3473000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"First Commit\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727563571657</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727563571657</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Registro\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727584903605</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727584903605</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Login\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727587210019</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727587210019</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Vista Cliente\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1727589525271</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1727589525271</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"5\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"First Commit\" />\r\n    <MESSAGE value=\"Registro\" />\r\n    <MESSAGE value=\"Login\" />\r\n    <MESSAGE value=\"Vista Cliente\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Vista Cliente\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/iAgroSolucion$iAgroSolucion.coverage\" NAME=\"iAgroSolucion Coverage Results\" MODIFIED=\"1727617353715\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 3a6d05d16afecd7904d74ab3a60205c2542c60f4)
++++ b/.idea/workspace.xml	(date 1727631055826)
+@@ -4,18 +4,17 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="37f287e9-c897-458b-a2e1-2324fc3d408f" name="Changes" comment="Vista Cliente">
+-      <change afterPath="$PROJECT_DIR$/Envios.csv" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/templates/confirmarPedido.html" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/templates/proveedor_index.html" afterDir="false" />
++    <list default="true" id="37f287e9-c897-458b-a2e1-2324fc3d408f" name="Changes" comment="Vista Proveedor">
++      <change afterPath="$PROJECT_DIR$/templates/agregarProducto.html" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/templates/enviarPedido.html" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/transportes.csv" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Envios.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Envios.csv" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/pedidos.csv" beforeDir="false" afterPath="$PROJECT_DIR$/pedidos.csv" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/productoCliente.csv" beforeDir="false" afterPath="$PROJECT_DIR$/productoCliente.csv" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/productoProveedor.csv" beforeDir="false" afterPath="$PROJECT_DIR$/productoProveedor.csv" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/templates/cliente_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cliente_index.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/templates/pedidosCliente.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pedidosCliente.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/templates/pedirProducto.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pedirProducto.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/proveedor_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/proveedor_index.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/registro.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registro.html" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/users.csv" beforeDir="false" afterPath="$PROJECT_DIR$/users.csv" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -57,21 +56,21 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+-    &quot;Flask server.iAgroSolucion.executor&quot;: &quot;Run&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Lenovo/Documents/iAgroSolucion&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "DefaultHtmlFileTemplate": "HTML File",
++    "Flask server.iAgroSolucion.executor": "Run",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "git-widget-placeholder": "master",
++    "last_opened_file_path": "C:/Users/Lenovo/Documents/TIC/Programacion/Python/Hackathon",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="C:\Users\Lenovo\Documents\iAgroSolucion\static\css" />
+@@ -116,7 +115,7 @@
+       <updated>1727563006094</updated>
+       <workItem from="1727563007187" duration="4291000" />
+       <workItem from="1727568786811" duration="13746000" />
+-      <workItem from="1727613920051" duration="3473000" />
++      <workItem from="1727613920051" duration="14501000" />
+     </task>
+     <task id="LOCAL-00001" summary="First Commit">
+       <option name="closed" value="true" />
+@@ -150,7 +149,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1727589525271</updated>
+     </task>
+-    <option name="localTasksCounter" value="5" />
++    <task id="LOCAL-00005" summary="Vista Proveedor">
++      <option name="closed" value="true" />
++      <created>1727617703259</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1727617703259</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -161,9 +168,10 @@
+     <MESSAGE value="Registro" />
+     <MESSAGE value="Login" />
+     <MESSAGE value="Vista Cliente" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Vista Cliente" />
++    <MESSAGE value="Vista Proveedor" />
++    <option name="LAST_COMMIT_MESSAGE" value="Vista Proveedor" />
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+-    <SUITE FILE_PATH="coverage/iAgroSolucion$iAgroSolucion.coverage" NAME="iAgroSolucion Coverage Results" MODIFIED="1727617353715" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
++    <SUITE FILE_PATH="coverage/iAgroSolucion$iAgroSolucion.coverage" NAME="iAgroSolucion Coverage Results" MODIFIED="1727629081164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: Envios.csv
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Envios.csv b/Envios.csv
+--- a/Envios.csv	(revision 3a6d05d16afecd7904d74ab3a60205c2542c60f4)
++++ b/Envios.csv	(date 1727627816579)
+@@ -1,0 +1,2 @@
++producto,nombreCliente,nombreProveedor
++Moto,test,Metro
+Index: transportes.csv
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/transportes.csv b/transportes.csv
+new file mode 100644
+--- /dev/null	(date 1727629473189)
++++ b/transportes.csv	(date 1727629473189)
+@@ -0,0 +1,5 @@
++nombre,precio
++Moto,200
++Carro,300
++Camión,450
++Avión,600
+Index: templates/agregarProducto.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/agregarProducto.html b/templates/agregarProducto.html
+new file mode 100644
+--- /dev/null	(date 1727628762061)
++++ b/templates/agregarProducto.html	(date 1727628762061)
+@@ -0,0 +1,39 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
++    <link rel="stylesheet" href="../static/css/style1.css">
++    <title>Agregar Producto</title>
++</head>
++<body>
++    <nav style="padding: 15px">
++        <h1 style="color: rgb(255,255,255); font-size: 40px">Agregar Producto</h1>
++    </nav>
++        <div class="full-height">
++            <form method="POST" action="/agregarProducto">
++                <div class="mb-3"><h2>Agregar</h2></div>
++                <div class="mb-3">
++                    <div class="input-group mb-3">
++                        <span class="input-group-text">Nombre del Producto</span>
++                        <input type="text" class="form-control" name="producto" required>
++                    </div>
++                    <div class="input-group mb-3">
++                        <span class="input-group-text">Precio</span>
++                        <input type="text" class="form-control" name="precio" required>
++                    </div>
++
++                    <button type="submit" class="btn btn_primary mb-3">Agregar</button>
++                </div>
++                <div><p style="color: #0e6d11">¿Ya tienes una cuenta? <button class="btn btn_primary"><a href="{{ url_for('index') }}" role="button">Inicia Sesión</a></button></p></div>
++            </form>
++        </div>
++
++        <footer>
++            <p>2024 Agrosolutions.com</p>
++        </footer>
++
++        <script src="../static/js/script1.js"></script>
++        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
++</body>
++</html>
+\ No newline at end of file
+Index: productoProveedor.csv
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>producto,precio,nombreProveedor\r\nFertilizante,500,Metro
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/productoProveedor.csv b/productoProveedor.csv
+--- a/productoProveedor.csv	(revision 3a6d05d16afecd7904d74ab3a60205c2542c60f4)
++++ b/productoProveedor.csv	(date 1727629136992)
+@@ -1,2 +1,3 @@
+ producto,precio,nombreProveedor
+-Fertilizante,500,Metro
+\ No newline at end of file
++Fertilizante,500,Metro
++Pestisida,500,Metro
+Index: pedidos.csv
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>producto,nombreCliente,nombreProveedor,cantidad,fechaPedida,fechaEntrega,estado\r\nFertilizante,test,Metro,2,29-09-2024,29-10-2024,No Enviado\r\nFertilizante,test,Metro,2,29-08-2024,29-10-2024,No Enviado\r\nFertilizante,test,Metro,10,29-09-2024,29-10-2024,No Enviado\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pedidos.csv b/pedidos.csv
+--- a/pedidos.csv	(revision 3a6d05d16afecd7904d74ab3a60205c2542c60f4)
++++ b/pedidos.csv	(date 1727627816585)
+@@ -1,4 +1,2 @@
+ producto,nombreCliente,nombreProveedor,cantidad,fechaPedida,fechaEntrega,estado
+-Fertilizante,test,Metro,2,29-09-2024,29-10-2024,No Enviado
+-Fertilizante,test,Metro,2,29-08-2024,29-10-2024,No Enviado
+-Fertilizante,test,Metro,10,29-09-2024,29-10-2024,No Enviado
++Fertilizante,test,Metro,1,29-09-2024,29-10-2024,Enviado
+Index: app.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from flask import Flask, render_template,request\r\nimport pandas as pd\r\nfrom datetime import datetime\r\nfrom dateutil.relativedelta import relativedelta\r\n\r\napp = Flask(__name__)\r\nuser = ''\r\ndef guardarNombre(nombre):\r\n    global user\r\n    user = nombre\r\n\r\ndef leerUsuarios():\r\n    df = pd.read_csv('users.csv')\r\n    df['password'] = df['password'].astype(str)\r\n    return df\r\n\r\ndef leerProductoProveedor():\r\n    productos = pd.read_csv('productoProveedor.csv')\r\n    return productos\r\n\r\ndef leerPedidos():\r\n    pedidos = pd.read_csv('pedidos.csv')\r\n    return pedidos\r\n\r\ndef leerProductoCliente():\r\n    productos = pd.read_csv('productoCliente.csv')\r\n    productos_list = productos.to_dict(orient='records')\r\n    return productos_list\r\n\r\ndef guardarUsuario(username, password, account):\r\n    df_new = pd.DataFrame([{'username':username,'password':password,'account':account}])\r\n    df = leerUsuarios()\r\n    df = pd.concat([df,df_new], ignore_index=True)\r\n    df.to_csv('users.csv',index=False)\r\n\r\ndef guardarPedido(producto,nombreCliente,nombreProveedor,cantidad,fechaPedida,fechaEntrega,estado):\r\n    df_new = pd.DataFrame([{\r\n        \"producto\":producto,\r\n        \"nombreCliente\":nombreCliente,\r\n        \"nombreProveedor\":nombreProveedor,\r\n        \"cantidad\":cantidad,\r\n        \"fechaPedida\":fechaPedida,\r\n        \"fechaEntrega\":fechaEntrega,\r\n        \"estado\":estado\r\n    }])\r\n    df = leerPedidos()\r\n    df = pd.concat([df,df_new], ignore_index=True)\r\n    df.to_csv('pedidos.csv',index=False)\r\n\r\n@app.route('/')\r\ndef index():  # put application's code here\r\n    return render_template('index.html')\r\n\r\n@app.route('/acercaNosotros')\r\ndef acercaNosotros():  # put application's code here\r\n    return render_template('acercaNosotros.html')\r\n\r\n@app.route('/registro', methods=['GET', 'POST'])\r\ndef registro():  # put application's code here\r\n    if request.method == 'POST':\r\n\r\n        username = request.form['username']\r\n        password = request.form['password']\r\n        account = request.form.get('type')\r\n        guardarUsuario(username, password, account)\r\n        return render_template('index.html')\r\n    return render_template('registro.html')\r\n\r\n@app.route('/login', methods=['GET', 'POST'])\r\ndef login():  # put application's code here\r\n    if request.method == 'POST':\r\n\r\n        username = request.form['username']\r\n        password = request.form['password']\r\n\r\n        df = leerUsuarios()\r\n\r\n        usuario_valido = df[(df['username'] == username) & (df['password'] == password)]\r\n\r\n        if not usuario_valido.empty:\r\n\r\n            guardarNombre(usuario_valido['username'].iloc[0])\r\n\r\n            if usuario_valido['account'].iloc[0] == \"Cliente\":\r\n                return render_template('cliente_index.html', producto = leerProductoCliente())\r\n            elif usuario_valido['account'].iloc[0] == \"Transportador\":\r\n                return render_template('proveedor_index.html',producto = leerPedidos().to_dict(orient='records'))\r\n            elif usuario_valido['account'].iloc[0] == \"Proveedor\":\r\n                return render_template('proveedor_index.html',producto = leerPedidos().to_dict(orient='records'))\r\n        else:\r\n            return render_template('index.html')\r\n\r\n    return render_template('registro.html')\r\n\r\n@app.route('/indexCliente')\r\ndef indexCliente():  # put application's code here\r\n    return render_template('cliente_index.html', producto = leerProductoCliente())\r\n\r\n@app.route('/pedirProducto', methods=['GET', 'POST'])\r\ndef pedirProducto():\r\n    if request.method == 'POST':\r\n        producto = request.form['producto']\r\n        precio = request.form['precio']\r\n        nombreProveedor = request.form['nombreProveedor']\r\n        nombreCliente = user\r\n        fechaPedido = datetime.now()\r\n        fechaEntrega = fechaPedido + relativedelta(months=1)\r\n        return render_template('confirmarPedido.html', producto=producto, precio=precio,\r\n                               nombreProveedor=nombreProveedor, nombreCliente=nombreCliente,\r\n                               fechaEntrega=fechaEntrega.strftime('%d-%m-%Y'))\r\n\r\n    return render_template('pedirProducto.html', producto = leerProductoProveedor().to_dict(orient='records'))\r\n\r\n@app.route('/confirmarProducto', methods=['GET', 'POST'])\r\ndef confirmarProducto():\r\n    if request.method == 'POST':\r\n        producto = request.form['producto']\r\n        nombreProveedor = request.form['nombreProveedor']\r\n        nombreCliente = user\r\n        cantidad = request.form['cantidad']\r\n        fechaPedida = datetime.now().strftime('%d-%m-%Y')\r\n        fechaEntrega = request.form['fechaEntrega']\r\n        estado = \"No Enviado\"\r\n\r\n        guardarPedido(producto, nombreCliente, nombreProveedor, cantidad, fechaPedida, fechaEntrega, estado)\r\n\r\n        return render_template('pedidosCliente.html')\r\n\r\n    return render_template('pedirProducto.html', producto = leerProductoProveedor().to_dict(orient='records'))\r\n\r\n@app.route('/pedidosCliente')\r\ndef pedidosCliente():\r\n    return render_template('pedidosCliente.html', producto = leerPedidos().to_dict(orient='records'))\r\n\r\nif __name__ == '__main__':\r\n    app.run()\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app.py b/app.py
+--- a/app.py	(revision 3a6d05d16afecd7904d74ab3a60205c2542c60f4)
++++ b/app.py	(date 1727629077217)
+@@ -1,4 +1,4 @@
+-from flask import Flask, render_template,request
++from flask import Flask, render_template, request, redirect, url_for
+ import pandas as pd
+ from datetime import datetime
+ from dateutil.relativedelta import relativedelta
+@@ -22,6 +22,14 @@
+     pedidos = pd.read_csv('pedidos.csv')
+     return pedidos
+ 
++def leerEnvios():
++    Envios = pd.read_csv('Envios.csv')
++    return Envios
++
++def leerTransporte():
++    Transporte = pd.read_csv('transportes.csv')
++    return Transporte
++
+ def leerProductoCliente():
+     productos = pd.read_csv('productoCliente.csv')
+     productos_list = productos.to_dict(orient='records')
+@@ -47,6 +55,30 @@
+     df = pd.concat([df,df_new], ignore_index=True)
+     df.to_csv('pedidos.csv',index=False)
+ 
++def guardarEnvio(producto,nombreCliente,nombreProveedor):
++    df_new = pd.DataFrame([{
++        "producto":producto,
++        "nombreCliente":nombreCliente,
++        "nombreProveedor":nombreProveedor
++    }])
++    df = leerEnvios()
++    df = pd.concat([df,df_new], ignore_index=True)
++    df.to_csv('Envios.csv',index=False)
++
++def guardarProducto(producto,precio,nombreProveedor):
++    df_new = pd.DataFrame([{
++        "producto":producto,
++        "precio":precio,
++        "nombreProveedor":nombreProveedor
++    }])
++    df = leerProductoProveedor()
++    df = pd.concat([df,df_new], ignore_index=True)
++    df.to_csv('productoProveedor.csv',index=False)
++
++def actualizarEstado(indice, estado):
++    df = leerPedidos()
++    df.loc[indice, "estado"] = estado
++    df.to_csv('pedidos.csv',index=False)
+ @app.route('/')
+ def index():  # put application's code here
+     return render_template('index.html')
+@@ -83,10 +115,8 @@
+ 
+             if usuario_valido['account'].iloc[0] == "Cliente":
+                 return render_template('cliente_index.html', producto = leerProductoCliente())
+-            elif usuario_valido['account'].iloc[0] == "Transportador":
+-                return render_template('proveedor_index.html',producto = leerPedidos().to_dict(orient='records'))
+             elif usuario_valido['account'].iloc[0] == "Proveedor":
+-                return render_template('proveedor_index.html',producto = leerPedidos().to_dict(orient='records'))
++                return redirect(url_for('indexProveedor'))
+         else:
+             return render_template('index.html')
+ 
+@@ -96,6 +126,10 @@
+ def indexCliente():  # put application's code here
+     return render_template('cliente_index.html', producto = leerProductoCliente())
+ 
++@app.route('/indexProveedor')
++def indexProveedor():
++    return render_template('proveedor_index.html', producto = leerPedidos().loc[leerPedidos()['estado'] == 'No Enviado'].to_dict(orient='records'))
++
+ @app.route('/pedirProducto', methods=['GET', 'POST'])
+ def pedirProducto():
+     if request.method == 'POST':
+@@ -124,7 +158,7 @@
+ 
+         guardarPedido(producto, nombreCliente, nombreProveedor, cantidad, fechaPedida, fechaEntrega, estado)
+ 
+-        return render_template('pedidosCliente.html')
++        return redirect(url_for('indexCliente'))
+ 
+     return render_template('pedirProducto.html', producto = leerProductoProveedor().to_dict(orient='records'))
+ 
+@@ -132,5 +166,32 @@
+ def pedidosCliente():
+     return render_template('pedidosCliente.html', producto = leerPedidos().to_dict(orient='records'))
+ 
++@app.route('/enviarPedido', methods=['GET', 'POST'])
++def enviarPedido():
++    if request.method == 'POST':
++        indice = int(request.form['indice'])
++        pedido_seleccionado = leerPedidos().iloc[indice]
++        return render_template('enviarPedido.html', producto = leerTransporte().to_dict(orient='records'), indice = indice, user = pedido_seleccionado["nombreCliente"])
++
++@app.route('/enviarTransportador', methods=['GET', 'POST'])
++def enviarTransportador():
++    if request.method == 'POST':
++        indice = int(request.form['indice'])
++        pedido_seleccionado = leerPedidos().iloc[indice]
++        nombre =request.form['nombre']
++        guardarEnvio(nombre, pedido_seleccionado["nombreCliente"], pedido_seleccionado["nombreProveedor"])
++        actualizarEstado(indice,"Enviado")
++        return redirect(url_for('indexProveedor'))
++
++@app.route('/agregarProducto', methods=['GET', 'POST'])
++def agregarProducto():
++    if request.method == 'POST':
++        producto = request.form['producto']
++        precio = request.form['precio']
++        nombreProveedor = user
++        guardarProducto(producto, precio, nombreProveedor)
++        return redirect(url_for('indexProveedor'))
++    return render_template('agregarProducto.html')
++
+ if __name__ == '__main__':
+     app.run()
