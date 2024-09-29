@@ -12,8 +12,9 @@
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
         <ul class="menu">
             <li><a href="{{ url_for('indexCliente') }}" role="button" id="inicio">PRODUCTOS</a></li>
-            <li><a href="{{ url_for('pedirProducto') }}" role="button" id="Informacion Data">PEDIR PRODUCTOS</a></li>
+            <li><a type="submit" href="{{ url_for('pedirProducto') }}" role="button" id="Informacion Data">PEDIR PRODUCTOS</a></li>
             <li><a href="{{ url_for('pedidosCliente') }}" role="button">PEDIDOS</a></li>
+            <li><a href="{{ url_for('index') }}" role="button">SALIR</a></li>
         </ul>
     </nav>
     <h1>Lista de Productos</h1>
