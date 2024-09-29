@@ -7,6 +7,14 @@ def leerUsuarios():
     df['password'] = df['password'].astype(str)
     return df
 
+def leerProductoProveedor():
+    productos = pd.read_csv('productoProveedor.csv')
+    return productos
+
+def leerPedidos():
+    pedidos = pd.read_csv('pedidos.csv')
+    return pedidos
+
 def leerProductoCliente():
     productos = pd.read_csv('productoCliente.csv')
     productos_list = productos.to_dict(orient='records')
@@ -63,6 +71,14 @@ def login():  # put application's code here
 @app.route('/indexCliente')
 def indexCliente():  # put application's code here
     return render_template('cliente_index.html', producto = leerProductoCliente())
+
+@app.route('/pedirProducto')
+def pedirProducto():
+    return render_template('pedirProducto.html', producto = leerProductoProveedor().to_dict(orient='records'))
+
+@app.route('/pedidosCliente')
+def pedidosCliente():
+    return render_template('pedidosCliente.html', producto = leerPedidos().to_dict(orient='records'))
 
 if __name__ == '__main__':
     app.run()

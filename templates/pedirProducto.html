@@ -11,8 +11,8 @@
         <label for="menu-toggle" class="menu-icono"></label>
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
         <ul class="menu">
-            <li><a href="{{ url_for('indexCliente') }}" role="button" id="inicio">PRODUCTOS</a></li>
-            <li><a href="{{ url_for('pedirProducto') }}" role="button" id="Informacion Data">PEDIR PRODUCTOS</a></li>
+            <li><a href="{{ url_for('indexCliente') }}" role="button">PRODUCTOS</a></li>
+            <li><a href="{{ url_for('pedirProducto') }}" role="button">PEDIR PRODUCTOS</a></li>
             <li><a href="{{ url_for('pedidosCliente') }}" role="button">PEDIDOS</a></li>
         </ul>
     </nav>
@@ -21,8 +21,8 @@
         <thead>
             <tr>
                 <th>Producto</th>
-                <th>Stock</th>
-                <th>Proveedor</th>
+                <th>Precio</th>
+                <th>Nombre del Proveedor</th>
                 <th>Pedir</th>
             </tr>
         </thead>
@@ -30,8 +30,8 @@
             {% for item in producto %}
             <tr>
                 <td>{{ item['producto'] }}</td>
-                <td>{{ item['stock'] }}</td>
-                <td>{{ item['proveedor'] }}</td>
+                <td>{{ item['precio'] }}</td>
+                <td>{{ item['nombreProveedor'] }}</td>
                 <td><button class="btn btn_primary">Pedir</button></td>
             </tr>
             {% endfor %}

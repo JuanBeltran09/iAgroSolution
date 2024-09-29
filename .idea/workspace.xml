@@ -4,27 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37f287e9-c897-458b-a2e1-2324fc3d408f" name="Changes" comment="First Commit">
-      <change afterPath="$PROJECT_DIR$/static/css/data.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/loginyregistro.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/mapa.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/style1.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/agricultura-e1551193452226.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/pexels-quang-nguyen-vinh-222549-2131784.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/pngtree-wheat-in-the-hands-harvest-time-image_1604049.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/Loginyregistro.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/data.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/mapa.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/script1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Data.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/acercaNosotros.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/loginyregistro.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/mapa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/iAgroSolucion.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/iAgroSolucion.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="37f287e9-c897-458b-a2e1-2324fc3d408f" name="Changes" comment="Login">
+      <change afterPath="$PROJECT_DIR$/pedidos.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/productoProveedor.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pedidosCliente.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pedirProducto.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cliente_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cliente_index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,21 +28,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "JuanBeltran09"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;JuanBeltran09&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/JuanBeltran09/iAgroSolution.git",
-    "accountId": "e72f5982-a71d-4d36-8ec0-0e7ce1e17826"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/JuanBeltran09/iAgroSolution.git&quot;,
+    &quot;accountId&quot;: &quot;e72f5982-a71d-4d36-8ec0-0e7ce1e17826&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2micnf6msxFSoqAR07jlhHGGElr" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -71,7 +57,7 @@
     "Flask server.iAgroSolucion.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Lenovo/Documents/iAgroSolucion/static/css",
+    "last_opened_file_path": "C:/Users/Lenovo/Documents/iAgroSolucion",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -123,6 +109,7 @@
       <option name="presentableId" value="Default" />
       <updated>1727563006094</updated>
       <workItem from="1727563007187" duration="4291000" />
+      <workItem from="1727568786811" duration="10151000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit">
       <option name="closed" value="true" />
@@ -132,7 +119,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727563571657</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Registro">
+      <option name="closed" value="true" />
+      <created>1727584903605</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1727584903605</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Login">
+      <option name="closed" value="true" />
+      <created>1727587210019</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1727587210019</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,9 +143,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="First Commit" />
+    <MESSAGE value="Registro" />
+    <MESSAGE value="Login" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/iAgroSolucion$iAgroSolucion.coverage" NAME="iAgroSolucion Coverage Results" MODIFIED="1727568742649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/iAgroSolucion$iAgroSolucion.coverage" NAME="iAgroSolucion Coverage Results" MODIFIED="1727588731626" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
